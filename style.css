@@ -1,0 +1,16 @@
+.innerContainer {
+    display: flex;
+}
+
+#outsideContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pixel {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+}
