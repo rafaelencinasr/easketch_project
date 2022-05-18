@@ -13,3 +13,21 @@ for(let i = 0 ; i<=15 ; i++){
         div.appendChild(div2);
     }
 }
+
+const pixels = document.querySelectorAll('div');
+
+    function colorPixel(e){
+        let className = this.classList.value;
+        if(className==='pixel'){
+            this.classList.add('colorPixel');
+        }
+        //e.stopPropagation();
+
+    }
+
+pixels.forEach(div => div.addEventListener('mouseover', colorPixel));
+
+const clearCanvas = document.querySelector('.clearCanvas');
+clearCanvas.addEventListener('click', ()=>{
+    pixels.forEach(div => div.classList.remove('colorPixel'));
+})

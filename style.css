@@ -24,3 +24,7 @@ body{
     border: 1px solid black;
     flex: 1 1 100%;
 }
+
+.colorPixel{
+    background: black;
+}
