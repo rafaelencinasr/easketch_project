@@ -1,16 +1,26 @@
-.innerContainer {
-    display: flex;
+body{
+    display:flex;
+    justify-content: center;
 }
 
 #outsideContainer {
+    border: 10px solid red;
+    width: 450px;
+    height: 450px;
+    display:flex;
+    justify-content: center;
+    /*align-items: center;*/
+    flex: 0 0 auto;
+}
+
+.innerContainer {
+    /*border: 1px solid black;*/
+    flex: 1 1 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .pixel {
-    width: 30px;
-    height: 30px;
     border: 1px solid black;
+    flex: 1 1 100%;
 }
