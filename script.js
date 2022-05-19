@@ -25,27 +25,28 @@ createGrid(gridSize);
 // this is a live element, so it should update with each DOM change.
 
 let pixelNodeList = document.getElementsByName('pixelName');
-console.log(pixelNodeList)
+//console.log(pixelNodeList)
 
 
-// Coloring each pixel when a mouse passes over it
-function coloringPixels(){
-    this.classList.add('.colorPixel');
-}
-
+let selectedColor = 'black';  // Default color to black
+let randomColorSelector= false;
 pixelNodeList.forEach(div=>div.addEventListener('mouseover', ()=>{
-    console.log("hello");
-    div.classList.add('colorPixel');
+    //console.log("hello");
+    if(randomColorSelector){
+        selectedColor = randomColorGen();
+    }
+    div.setAttribute('style',`background: ${selectedColor};`);
+    //div.style.color = 'black';
 }));
 
-// Canvas clearing button, removes the colorPixel class and reverts it
+// Canvas clearing button, changes background color for all divs to white
 // to a white background.
 
 const clearCanvas = document.querySelector('.clearCanvas');
 clearCanvas.addEventListener('click', ()=>{
 
     // For each div => remove the colorPixel class
-    pixelNodeList.forEach(div => div.classList.remove('colorPixel'));
+    pixelNodeList.forEach(div => div.setAttribute('style',`background: white;`));
     
 })
 
@@ -73,11 +74,38 @@ changeGridSize.addEventListener('click', ()=>{
         outsideContainer.removeChild(ripDivs);
     }
     createGrid(gridSize);
-    console.log(pixelNodeList);
+    //console.log(pixelNodeList);
     pixelNodeList.forEach(div=>div.addEventListener('mouseover', ()=>{
-        console.log("hello");
-        div.classList.add('colorPixel');
+        //console.log("hello");
+        if(randomColorSelector){
+            selectedColor = randomColorGen();
+        }
+        div.setAttribute('style',`background: ${selectedColor};`);
+        //div.style.color = 'black';
     }));
     changeGridSizeText(gridSize);
 });
 
+// Random color generator
+
+function randomColorGen(){
+    let randomDecimal = Math.floor(Math.random()*16777215);
+    let decToHex = randomDecimal.toString(16);
+    let randomColor = "#" + decToHex;
+    return randomColor;
+}
+
+const changeToBlackColor = document.querySelector('#changeToBlackColor');
+const changeToRandomColor = document.querySelector('#changeToRandomColor');
+
+
+changeToBlackColor.addEventListener('click', ()=>{
+    randomColorSelector = false;
+    //console.log('changing to black');
+    selectedColor = 'black';
+});
+
+
+changeToRandomColor.addEventListener('click', ()=>{
+    randomColorSelector = true;
+});
