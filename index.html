@@ -7,13 +7,19 @@
         <link rel="stylesheet" href="./style.css">
     </head>
     <body>
-        <button id="changeGridSize">Change grid dimension</button>
-        <div class="currentSize">Current grid size: 16x16</div>
-        <div id="outsideContainer">
-
+        <h1>The classic Etch-a-Sketch, <em>now with extra HTML, CSS, and JS.</em></h1>
+        <div class="bottomPart">
+        <div class="left">
+            <button id="changeGridSize" class="leftItems">Change grid dimension</button>
+            <div class="currentSize leftItems">Current grid size: 16x16</div>
+            <button id="changeToRandomColor" class="leftItems">Change to Random Colors</button>
+            <button id="changeToBlackColor" class="leftItems">Change to Black Color</button>
+            <button class="clearCanvas leftItems">Clear canvas</button>
         </div>
-        <button id="changeToRandomColor">Change to Random Colors</button>
-        <button id="changeToBlackColor">Change to Black Color</button>
-        <button class="clearCanvas">Clear canvas</button>
+        <div class="right">
+            <div id="outsideContainer">
+            </div>
+        </div>
+        </div>
     </body>
 </html>
